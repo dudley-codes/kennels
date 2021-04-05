@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import "./NavBar.css";
 
 export const NavBar = () => {
 	return (
+    // <Router>
 		<ul className="navbar">
 			<li className="navbar__item active">
 				<Link className="navbar__link" to="/">
@@ -31,5 +32,6 @@ export const NavBar = () => {
 				</Link>
 			</li>
 		</ul>
-	);
+    // </Router>
+  );
 };
