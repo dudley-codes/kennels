@@ -1,9 +1,13 @@
-import React from 'react'
-import './Employee.css'
+import React from 'react';
+import './Employee.css';
 
-export const EmployeeCard = () => (
-  <section className="employee">
-    <h3 className="employee__name">Morty Smith</h3>
-    <div className="employee__job">Job Title: Pooper Scooper Upper</div>
+export const EmployeeCard = ({ employee }) => (
+  <section className="card">
+    <div className="card-content">
+      <h3><span className="card-petname">
+        { employee.name }
+      </span></h3>
+      <p>Job Title: <br></br>{ employee.jobTitle }</p>
+    </div>
   </section>
-)
+);

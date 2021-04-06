@@ -42,12 +42,12 @@
     {
       "id": 1,
       "name": "Rick Sanchez",
-      "address": "None of your business! Do you work for the Galactic Empire or something?!"
+      "jobTitle": "None of your business! Do you work for the Galactic Empire or something?!"
   },
   {
     "id": 2,
     "name": "Morty Smith",
-    "address": "123 Any St, Anytown, USA"
+    "jobTitle": "Pooper Scooper Upper"
 }
   ],
   "locations": [
