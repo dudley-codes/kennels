@@ -12,6 +12,7 @@ export const AnimalCard = ({ animal }) => {
           { animal.name }
         </span></h3>
         <p>Breed: { animal.breed }</p>
+        {/* <p>Location: { animal.location.name }</p> */ }
       </div>
     </div>
   );

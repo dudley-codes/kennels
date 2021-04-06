@@ -1,10 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { Home } from './Home';
-import { AnimalCard } from './animal/AnimalCard';
 import { CustomerCard } from './customer/Customer';
 import { EmployeeCard } from './employee/Employee';
-import { LocationCard } from './location/Location';
+import { LocationList } from './location/LocationList';
 import { AnimalList } from './animal/AnimalList';
 
 export const ApplicationViews = () => {
@@ -29,7 +28,7 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route path='/locations'>
-        <LocationCard />
+        <LocationList />
       </Route>
     </>
   );
