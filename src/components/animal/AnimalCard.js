@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./Animal.css";
 
-export const AnimalCard = ({ animal }) => {
+export const AnimalCard = ({ animal, handleDeleteAnimal }) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -12,7 +13,12 @@ export const AnimalCard = ({ animal }) => {
           { animal.name }
         </span></h3>
         <p>Breed: { animal.breed }</p>
-        {/* <p>Location: { animal.location.name }</p> */ }
+        <button type="button" onClick={ () => handleDeleteAnimal(animal.id) }>
+          Discharge
+          </button>
+        <Link to={ `/animals/${ animal.id }` }>
+          <button>Details</button>
+        </Link>
       </div>
     </div>
   );

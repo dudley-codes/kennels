@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllEmployees } from '../../modules/EmployeeManager';
+import { fireEmployee, getAllEmployees } from '../../modules/EmployeeManager';
 import { EmployeeCard } from './Employee';
 
 export const EmployeeList = () => {
@@ -18,10 +18,18 @@ export const EmployeeList = () => {
     getEmployee();
   }, []);
 
+  const handleFireEmployee = (id) => {
+    fireEmployee(id)
+      .then(() => getAllEmployees().then(setEmployees));
+  };
+
   return (
     <div className='container-cards'>
       {employees.map(employee =>
-        <EmployeeCard key={ employee.id } employee={ employee } />) }
+        <EmployeeCard
+          key={ employee.id }
+          employee={ employee }
+          handleFireEmployee={ handleFireEmployee } />) }
     </div>
   );
 };

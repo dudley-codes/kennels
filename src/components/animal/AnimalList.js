@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllAnimals } from '../../modules/AnimalManager';
+import { getAllAnimals, deleteAnimal } from '../../modules/AnimalManager';
 import { AnimalCard } from './AnimalCard';
 
 export const AnimalList = () => {
@@ -18,10 +18,18 @@ export const AnimalList = () => {
     getAnimals();
   }, []);
 
+  const handleDeleteAnimal = id => {
+    deleteAnimal(id)
+      .then(() => getAllAnimals().then(setAnimals));
+  };
+
   return (
-    <div className='container-cards'>
+    <div className="container-cards">
       {animals.map(animal =>
-        <AnimalCard key={ animal.id } animal={ animal } />) }
+        <AnimalCard
+          key={ animal.id }
+          animal={ animal }
+          handleDeleteAnimal={ handleDeleteAnimal } />) }
     </div>
   );
 };
