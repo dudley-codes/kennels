@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const PropsAndState = ({ yourName }) => {
-	return (
-		<>
-			<h3>Welcome, {yourName} </h3>
-		</>
-	);
+  let [ countClicks, setCountClicks ] = useState(0);
+
+  const handleClick = () => {
+    // good practice: 
+    // make a copy of state, modify it, and then setStaet to the copy
+    const newCountClicks = ++countClicks;
+    setCountClicks(newCountClicks);
+  };
+
+  return (
+    <>
+      <h3>Welcome, { yourName } </h3>
+      <p>{ countClicks }</p>
+      <button onClick={ (handleClick) }>Click Me</button>
+    </>
+  );
 };
