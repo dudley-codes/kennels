@@ -13,5 +13,25 @@ export const getAllAnimals = () => {
 export const deleteAnimal = (id) => {
   return fetch(`${ remoteURL }/animals/${ id }`, {
     method: "DELETE"
-  }).then(result => result.json());
+  }).then(res => res.json());
+};
+
+export const addAnimal = (newAnimal) => {
+  return fetch(`${ remoteURL }/animals`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newAnimal)
+  }).then(res => res.json());
+};
+
+export const updateAnimal = (editedAnimal) => {
+  return fetch(`${ remoteURL }/animals/${ editedAnimal.id }`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(editedAnimal)
+  }).then(data => data.json());
 };

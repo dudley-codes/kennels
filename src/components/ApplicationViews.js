@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { Home } from './Home';
 import { CustomerList } from './customer/CustomerList';
 import { EmployeeList } from './employee/EmployeeList';
@@ -7,8 +7,12 @@ import { LocationList } from './location/LocationList';
 import { AnimalList } from './animal/AnimalList';
 import { AnimalDetail } from './animal/AnimalDetail';
 import { LocationDetail } from './location/LocationDetails';
-
+import { Login } from '../components/auth/Login';
+import { Register } from '../components/auth/Register';
+import { AnimalEditForm } from './animal/AnimalEditForm';
+import { AnimalForm } from './animal/AnimalForm';
 export const ApplicationViews = () => {
+
   return (
     <>
       {/* Render the location list when http://localhost:3000 */ }
@@ -19,10 +23,28 @@ export const ApplicationViews = () => {
       {/* Render the animal list when http://localhost:3000/animals */ }
       <Route exact path='/animals'>
         <AnimalList />
+        {/* { sessionStorage.getItem("kennel_customer") !== null ? <AnimalList /> : <Redirect to="/login" /> } */ }
       </Route>
 
-      <Route path='/animals/:animalId(\d+)'>
+      <Route path='/animals/create'>
+        <AnimalForm />
+      </Route>
+
+      <Route path="/login">
+        <Login />
+      </Route>
+
+      <Route path="/register">
+        <Register />
+      </Route>
+
+      <Route exact path='/animals/:animalId(\d+)'>
         <AnimalDetail />
+      </Route>
+
+      <Route path="/animals/:animalId(\d+)/edit">
+        <AnimalEditForm />
+
       </Route>
 
       <Route path='/customers'>
@@ -43,3 +65,5 @@ export const ApplicationViews = () => {
     </>
   );
 };
+
+
