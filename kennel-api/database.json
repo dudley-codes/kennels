@@ -9,7 +9,7 @@
     },
     {
       "id": 4,
-      "name": "Snowball",
+      "name": "snowball",
       "breed": "Shih Tzu",
       "locationId": 2,
       "customerId": 2
