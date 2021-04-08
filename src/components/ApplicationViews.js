@@ -11,6 +11,7 @@ import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
 import { AnimalEditForm } from './animal/AnimalEditForm';
 import { AnimalForm } from './animal/AnimalForm';
+import { EmployeeHireForm } from './employee/EmployeeHireForm';
 export const ApplicationViews = () => {
 
   return (
@@ -51,8 +52,12 @@ export const ApplicationViews = () => {
         <CustomerList />
       </Route>
 
-      <Route path='/employees'>
+      <Route exact path='/employees'>
         <EmployeeList />
+      </Route>
+
+      <Route path='/employees/hire'>
+        <EmployeeHireForm />
       </Route>
 
       <Route exact path='/locations'>

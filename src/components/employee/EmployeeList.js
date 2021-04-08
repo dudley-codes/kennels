@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { fireEmployee, getAllEmployees } from '../../modules/EmployeeManager';
 import { EmployeeCard } from './Employee';
 
 export const EmployeeList = () => {
   // set initial state as an empty array
   const [ employees, setEmployees ] = useState([]);
+
+  const history = useHistory();
 
   const getEmployee = () => {
     // After data comes back from the API, we 
@@ -24,12 +27,19 @@ export const EmployeeList = () => {
   };
 
   return (
-    <div className='container-cards'>
-      {employees.map(employee =>
-        <EmployeeCard
-          key={ employee.id }
-          employee={ employee }
-          handleFireEmployee={ handleFireEmployee } />) }
-    </div>
+    <>
+      <section className='section-content'>
+        <button type='button'
+          className='btn'
+          onClick={ () => { history.push('/employees/hire'); } }>New Hire</button>
+      </section>
+      <div className='container-cards'>
+        { employees.map(employee =>
+          <EmployeeCard
+            key={ employee.id }
+            employee={ employee }
+            handleFireEmployee={ handleFireEmployee } />) }
+      </div>
+    </>
   );
 };

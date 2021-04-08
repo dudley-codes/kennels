@@ -14,3 +14,13 @@ export const fireEmployee = (id) => {
     method: "DELETE"
   }).then(result => result.json());
 };
+
+export const hireEmployee = (newHire) => {
+  return fetch(`${ remoteURL }/employees`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newHire)
+  }).then(res => res.json());
+};

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { addAnimal } from '../../modules/AnimalManager';
+import { getAllCustomers } from '../../modules/CustomerManager';
 import { getAllLocations } from '../../modules/LocationManager';
 import './AnimalForm.css';
 
@@ -45,11 +46,18 @@ export const AnimalForm = () => {
   };
 
   useEffect(() => {
-    getAllLocations();
+    getAllLocations()
+      .then(location => {
+        setLocation(location);
+      });
   }, []);
 
   useEffect(() => {
     //load customer data and setState
+    getAllCustomers()
+      .then(cust => {
+        setCustomers(cust);
+      });
   }, []);
 
 

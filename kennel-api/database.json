@@ -2,7 +2,7 @@
   "animals": [
     {
       "id": 3,
-      "name": "Esme the dog3",
+      "name": "Esme the dog",
       "breed": "Pitbull",
       "locationId": 1,
       "customerId": 1
@@ -13,6 +13,13 @@
       "breed": "Shih Tzu",
       "locationId": 2,
       "customerId": 2
+    },
+    {
+      "name": "Nanook",
+      "breed": "Husky",
+      "locationId": 2,
+      "customerId": 3,
+      "id": 5
     }
   ],
   "customers": [
@@ -37,12 +44,20 @@
     {
       "id": 1,
       "name": "Rick Sanchez",
-      "jobTitle": "None of your business! Do you work for the Galactic Empire or something?!"
+      "jobTitle": "None of your business! Do you work for the Galactic Empire or something?!",
+      "locationId": 1
     },
     {
       "id": 2,
       "name": "Morty Smith",
-      "jobTitle": "Pooper Scooper Upper"
+      "jobTitle": "Pooper Scooper Upper",
+      "locationId": 2
+    },
+    {
+      "name": "Jerry Smith",
+      "locationId": 1,
+      "jobTitle": "",
+      "id": 3
     }
   ],
   "locations": [
