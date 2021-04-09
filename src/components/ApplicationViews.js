@@ -13,29 +13,23 @@ import { AnimalEditForm } from './animal/AnimalEditForm';
 import { Route, Redirect } from 'react-router-dom';
 import { NewLocationForm } from './location/LocationForm';
 import { EmployeeHireForm } from './employee/EmployeeHireForm';
+import { EmployeeEditForm } from './employee/EmployeeEditForm';
 
 // export let currentUserName = "";
 // console.log('test', currentUserName);
 
-export const ApplicationViews = () => {
+export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
 
-  const [ isAuthenticated, setIsAuthenticated ] = useState(sessionStorage.getItem("kennel_customer") !== null);
-
-  const setAuthUser = (user) => {
-    sessionStorage.setItem("kennel_customer", JSON.stringify(user));
-
-    console.log('logged in user is', user);
-    setIsAuthenticated(sessionStorage.getItem("kennel_customer") !== null);
-  };
+  const currentUser = JSON.parse(sessionStorage.getItem('kennel_customer'));
 
   return (
     <>
-      {/* Render the location list when http://localhost:3000 */ }
       <Route exact path='/'>
+        { isAuthenticated
+          && <h2>Welcome back, { currentUser.name }</h2> }
         <Home />
       </Route>
 
-      {/* Render the animal list when http://localhost:3000/animals */ }
       <Route exact path='/animals'>
         { isAuthenticated ? <AnimalList /> : <Redirect to="/login" /> }
       </Route>
@@ -59,6 +53,10 @@ export const ApplicationViews = () => {
       <Route path="/animals/:animalId(\d+)/edit">
         <AnimalEditForm />
 
+      </Route>
+
+      <Route path='/employees/:employeeId(\d+)/edit'>
+        <EmployeeEditForm />
       </Route>
 
       <Route path='/customers'>

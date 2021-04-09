@@ -24,3 +24,18 @@ export const hireEmployee = (newHire) => {
     body: JSON.stringify(newHire)
   }).then(res => res.json());
 };
+
+export const getEmployeeById = (id) => {
+  return fetch(`${ remoteURL }/employees/${ id }`)
+    .then(res => res.json());
+};
+
+export const updateEmployee = (editedEmployee) => {
+  return fetch(`${ remoteURL }/employees/${ editedEmployee.id }`, {
+    method: "PUT",
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(editedEmployee)
+  }).then(data => data.json());
+};

@@ -59,28 +59,25 @@
       "id": 1,
       "name": "Rick Sanchez",
       "jobTitle": "None of your business! Do you work for the Galactic Empire or something?!",
-      "locationId": 1
+      "locationId": "3"
     },
     {
       "id": 2,
       "name": "Morty Smith",
-      "jobTitle": "Pooper Scooper Upper",
-      "locationId": 2
+      "jobTitle": "Poop Scooper",
+      "locationId": "1"
     },
     {
+      "id": 3,
       "name": "Jerry Smith",
-      "locationId": 1,
       "jobTitle": "Janitor",
-      "job": "f",
-      "title": "Jerry Smithd",
-      "jobTit": "asdff",
-      "id": 3
+      "locationId": "3"
     },
     {
+      "id": 4,
       "name": "Alex",
-      "locationId": 2,
       "jobTitle": "Da Boss",
-      "id": 4
+      "locationId": "3"
     }
   ],
   "locations": [

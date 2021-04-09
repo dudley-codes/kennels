@@ -5,7 +5,7 @@ import { getAllCustomers } from '../../modules/CustomerManager';
 import { getAllLocations } from '../../modules/LocationManager';
 import './AnimalForm.css';
 
-export const AnimalForm = ({ locationId, customerId }) => {
+export const AnimalForm = () => {
   // State will contain both animal data as well as an isLoading flag.
   // Define the initial state of the form inputs with useState()
 

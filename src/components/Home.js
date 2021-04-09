@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import { AnimalSpotlight } from "../components/animal/AnimalSpotlight";
 import { getRandomId } from "../modules/AnimalManager";
 import { PropsAndState } from "./PropAndState";
-// import { currentUserName } from './ApplicationViews';
-const currentUser = JSON.parse(sessionStorage.getItem('kennel_customer'));
-console.log("current user", currentUser.name);
+
+// Takes current user from sessionStorage and parses it into an object
+// const isLoggedIn = () => {
+//   const user = JSON.parse(sessionStorage.getItem('kennel_customer'));
+//   if (user !== null) {
+//     return user.name;
+//   }
+
+// };
+
 
 export const Home = () => {
   const [ spotlightId, setSpotlightId ] = useState(0);
@@ -19,7 +26,7 @@ export const Home = () => {
 
   return (
     <>
-      <h2>Welcome back, { currentUser.name }</h2>
+      {/* <h2>Welcome back, { currentUser() }</h2> */ }
       <address>
         Visit Us at the Nashville North Location
         <br />
