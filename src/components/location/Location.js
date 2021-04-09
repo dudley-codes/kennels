@@ -10,10 +10,10 @@ export const LocationCard = ({ location, handleDeleteLocation }) => (
       </span></h3>
       <p>Address: <br></br>{ location.address }</p>
 
-      <button type='button' onClick={ () => handleDeleteLocation(location.id) }>Delete</button>
+      <button type='button' onClick={ () => handleDeleteLocation(location.id) }>Close Location</button>
 
       <Link to={ `/locations/${ location.id }` }>
-        <button>Close Location</button>
+        <button>Details</button>
       </Link>
 
     </div>

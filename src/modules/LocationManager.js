@@ -15,3 +15,13 @@ export const getLocationById = (locationId) => {
   return fetch(`${ remoteURL }/locations/${ locationId }`)
     .then((res) => res.json());
 };
+
+export const addLocation = (newLoc) => {
+  return fetch(`${ remoteURL }/locations`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newLoc)
+  }).then(res => res.json());
+};

@@ -9,7 +9,7 @@ export const AnimalCard = ({ animal, handleDeleteAnimal }) => {
         <picture>
           {/* <img src={ require('./dog.svg') } alt="My Dog" /> */ }
         </picture>
-        <h3>Name: <span className="card-petname">
+        <h3><span className="card-petname">
           { animal.name }
         </span></h3>
         <p>Breed: { animal.breed }</p>
@@ -19,6 +19,10 @@ export const AnimalCard = ({ animal, handleDeleteAnimal }) => {
 
         <Link to={ `/animals/${ animal.id }` }>
           <button>Details</button>
+        </Link>
+
+        <Link to={ `/animals/${ animal.id }/edit` }>
+          <button>Edit</button>
         </Link>
       </div>
     </div>

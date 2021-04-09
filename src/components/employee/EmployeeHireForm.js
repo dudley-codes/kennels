@@ -50,6 +50,7 @@ always create a copy, make changes, and then set state.*/
 
   const handleClickSaveEmployee = (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     const locationId = employee.locationId;
 
@@ -75,6 +76,12 @@ always create a copy, make changes, and then set state.*/
         </fieldset>
         <fieldset>
           <div className='form-group'>
+            <label htmlFor='job-title'>Job Title:</label>
+            <input type='text' id='jobTitle' className='form-control' onChange={ handleControlledInputChange } required autoFocus placeholder='Job Title...' value={ employee.jobTitle } />
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className='form-group'>
             <label htmlFor='location'>Assign to Location</label>
             <select value={ employee.locationId } name='locationId' id='locationId' onChange={ handleControlledInputChange } className='form-control' >
               <option value='0'>Select a Location</option>
@@ -86,7 +93,7 @@ always create a copy, make changes, and then set state.*/
             </select>
           </div>
         </fieldset>
-        <button className='btn btn-primary'
+        <button className='btn btn-primary' disabled={ isLoading } type='button'
           onClick={ handleClickSaveEmployee }>
           Save Employee
         </button>

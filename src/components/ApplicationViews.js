@@ -12,6 +12,7 @@ import { Register } from '../components/auth/Register';
 import { AnimalEditForm } from './animal/AnimalEditForm';
 import { AnimalForm } from './animal/AnimalForm';
 import { EmployeeHireForm } from './employee/EmployeeHireForm';
+import { NewLocationForm } from './location/LocationForm';
 export const ApplicationViews = () => {
 
   return (
@@ -66,6 +67,10 @@ export const ApplicationViews = () => {
 
       <Route path='/locations/:locationId(\d+)'>
         <LocationDetail />
+      </Route>
+
+      <Route path='/locations/new'>
+        <NewLocationForm />
       </Route>
     </>
   );

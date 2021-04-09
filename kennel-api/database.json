@@ -2,14 +2,14 @@
   "animals": [
     {
       "id": 3,
-      "name": "Esme the dog",
+      "name": "Esme",
       "breed": "Pitbull",
       "locationId": 1,
       "customerId": 1
     },
     {
       "id": 4,
-      "name": "snowball",
+      "name": "Snowball",
       "breed": "Shih Tzu",
       "locationId": 2,
       "customerId": 2
@@ -20,6 +20,20 @@
       "locationId": 2,
       "customerId": 3,
       "id": 5
+    },
+    {
+      "name": "Snuffles",
+      "breed": "fluffball",
+      "locationId": 1,
+      "customerId": 2,
+      "id": 6
+    },
+    {
+      "name": "Doug",
+      "breed": "Pug",
+      "locationId": 2,
+      "customerId": 3,
+      "id": 7
     }
   ],
   "customers": [
@@ -56,8 +70,17 @@
     {
       "name": "Jerry Smith",
       "locationId": 1,
-      "jobTitle": "",
+      "jobTitle": "Janitor",
+      "job": "f",
+      "title": "Jerry Smithd",
+      "jobTit": "asdff",
       "id": 3
+    },
+    {
+      "name": "Alex",
+      "locationId": 2,
+      "jobTitle": "Da Boss",
+      "id": 4
     }
   ],
   "locations": [
@@ -70,6 +93,11 @@
       "id": 2,
       "name": "Nashville South",
       "address": "209 Emory Drive"
+    },
+    {
+      "name": "East Nashville",
+      "address": "123 Any St, Nashville, TN",
+      "id": 3
     }
   ]
 }

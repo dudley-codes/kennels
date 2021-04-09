@@ -49,6 +49,7 @@ export const AnimalForm = () => {
     getAllLocations()
       .then(location => {
         setLocation(location);
+        setIsLoading(false);
       });
   }, []);
 
@@ -63,6 +64,7 @@ export const AnimalForm = () => {
 
   const handleClickSaveAnimal = (event) => {
     event.preventDefault(); //Prevents the browser from submitting the form
+    setIsLoading(true);
 
     const locationId = animal.locationId;
     const customerId = animal.customerId;
@@ -118,7 +120,7 @@ export const AnimalForm = () => {
           </select>
         </div>
       </fieldset>
-      <button className="btn btn-primary"
+      <button className="btn btn-primary" type='button' disabled={ isLoading }
         onClick={ handleClickSaveAnimal }>
         Save Animal
           </button>
