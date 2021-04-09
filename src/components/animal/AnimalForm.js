@@ -5,7 +5,7 @@ import { getAllCustomers } from '../../modules/CustomerManager';
 import { getAllLocations } from '../../modules/LocationManager';
 import './AnimalForm.css';
 
-export const AnimalForm = () => {
+export const AnimalForm = ({ locationId, customerId }) => {
   // State will contain both animal data as well as an isLoading flag.
   // Define the initial state of the form inputs with useState()
 
@@ -58,13 +58,13 @@ export const AnimalForm = () => {
     getAllCustomers()
       .then(cust => {
         setCustomers(cust);
+        setIsLoading(false);
       });
   }, []);
 
 
   const handleClickSaveAnimal = (event) => {
     event.preventDefault(); //Prevents the browser from submitting the form
-    setIsLoading(true);
 
     const locationId = animal.locationId;
     const customerId = animal.customerId;
@@ -74,6 +74,7 @@ export const AnimalForm = () => {
     } else {
       //invoke addAnimal passing animal as an argument.
       //once complete, change the url and display the animal list
+      setIsLoading(true);
       addAnimal(animal)
         .then(() => history.push("/animals"));
     }

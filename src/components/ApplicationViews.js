@@ -1,19 +1,32 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Home } from './Home';
+import { Login } from '../components/auth/Login';
+import { Register } from '../components/auth/Register';
+import { AnimalList } from './animal/AnimalList';
+import { AnimalForm } from './animal/AnimalForm';
 import { CustomerList } from './customer/CustomerList';
 import { EmployeeList } from './employee/EmployeeList';
 import { LocationList } from './location/LocationList';
-import { AnimalList } from './animal/AnimalList';
 import { AnimalDetail } from './animal/AnimalDetail';
 import { LocationDetail } from './location/LocationDetails';
-import { Login } from '../components/auth/Login';
-import { Register } from '../components/auth/Register';
 import { AnimalEditForm } from './animal/AnimalEditForm';
-import { AnimalForm } from './animal/AnimalForm';
-import { EmployeeHireForm } from './employee/EmployeeHireForm';
+import { Route, Redirect } from 'react-router-dom';
 import { NewLocationForm } from './location/LocationForm';
+import { EmployeeHireForm } from './employee/EmployeeHireForm';
+
+// export let currentUserName = "";
+// console.log('test', currentUserName);
+
 export const ApplicationViews = () => {
+
+  const [ isAuthenticated, setIsAuthenticated ] = useState(sessionStorage.getItem("kennel_customer") !== null);
+
+  const setAuthUser = (user) => {
+    sessionStorage.setItem("kennel_customer", JSON.stringify(user));
+
+    console.log('logged in user is', user);
+    setIsAuthenticated(sessionStorage.getItem("kennel_customer") !== null);
+  };
 
   return (
     <>
@@ -24,8 +37,7 @@ export const ApplicationViews = () => {
 
       {/* Render the animal list when http://localhost:3000/animals */ }
       <Route exact path='/animals'>
-        <AnimalList />
-        {/* { sessionStorage.getItem("kennel_customer") !== null ? <AnimalList /> : <Redirect to="/login" /> } */ }
+        { isAuthenticated ? <AnimalList /> : <Redirect to="/login" /> }
       </Route>
 
       <Route path='/animals/create'>
@@ -33,11 +45,11 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route path="/login">
-        <Login />
+        <Login setAuthUser={ setAuthUser } />
       </Route>
 
       <Route path="/register">
-        <Register />
+        <Register setAuthUser={ setAuthUser } />
       </Route>
 
       <Route exact path='/animals/:animalId(\d+)'>
