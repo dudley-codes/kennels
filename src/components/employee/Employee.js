@@ -12,6 +12,9 @@ export const EmployeeCard = ({ employee, handleFireEmployee }) => (
       <Link to={ `/employees/${ employee.id }/edit` }>
         <button>Edit</button>
       </Link>
+      <Link to={ `/employees/${ employee.id }/details` }>
+        <button>Details</button>
+      </Link>
       <button type="button" onClick={ () => handleFireEmployee(employee.id) }>Fire</button>
     </div>
   </section>

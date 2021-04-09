@@ -14,6 +14,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { NewLocationForm } from './location/LocationForm';
 import { EmployeeHireForm } from './employee/EmployeeHireForm';
 import { EmployeeEditForm } from './employee/EmployeeEditForm';
+import { EmployeeDetail } from './employee/EmployeeDetail';
 
 // export let currentUserName = "";
 // console.log('test', currentUserName);
@@ -48,6 +49,10 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
 
       <Route exact path='/animals/:animalId(\d+)'>
         <AnimalDetail />
+      </Route>
+
+      <Route exact path='/employees/:employeeId(\d+)/details'>
+        <EmployeeDetail />
       </Route>
 
       <Route path="/animals/:animalId(\d+)/edit">
